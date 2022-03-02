@@ -1,0 +1,28 @@
+import sqlite3
+conn = sqlite3.connect('movie_detail.db')
+c = conn.cursor()
+#c.execute(""" create table list_movie (
+#        movie_id int PRIMARY KEY,
+#        movie_name VARCHAR(100) NOT NULL,
+#        Actor_name VARCHAR(100),
+#        Actress_name VARCHAR(100),
+#        Director_Name VARCHAR(100),
+#        Release_year YEAR[(2|4)]);  """)
+<sqlite3.Cursor at 0x1dfd9ca8260>
+#c.execute("insert into list_movie values(1,'master','vijay','malavika','lokesh',2021)")
+#c.execute("insert into list_movie values(2,'annatha','rajinikanth','keerthi suresh','siva',2022)")
+#c.execute("insert into list_movie values(3,'friends','vijay','eliyana','shankar',2012)")
+#c.execute("insert into list_movie values(4,'beast','vijay','Kajol','nelson',2022)")
+#c.execute("insert into list_movie values(5,'singam','suriya','nayanthara','hari',2017)")
+<sqlite3.Cursor at 0x1dfd9ca8260>
+c.execute("SELECT * FROM list_movie")
+<sqlite3.Cursor at 0x1dfd9ca8260>
+print(c.fetchall())
+[(1,'MASTER','vijay','malavika','lokesh',2021),(2,'annatha','rajinikanth','keerthi suresh','siva',2022),(3,'friends','vijay','eliyana','shankar',2012),(4,'beast','vijay','Kajol','nelson',2022),(5,'singam','suriya','nayanthara','hari',2017)
+<sqlite3.Cursor at 0x1dfd9ca8260>]
+c.execute("SELECT movie_name FROM list_movie WHERE Actor_name = 'vijay'")
+<sqlite3.Cursor at 0x1dfd9ca8260>
+print(c.fetchall())
+[('master',), ('friends',), ('beast',)]
+conn.commit()
+conn.close()
